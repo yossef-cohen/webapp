@@ -19,6 +19,9 @@ jobs:
       
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag lidorlg/webapp:${{ github.run_number }}-${{ github.sha }}
-
+      
+    - name: login to Docker Hub
+      run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASS }}
+      
     - name: push docker Image to registry 
       run: docker push lidorlg/webapp:${{ github.run_number }}-${{ github.sha }}
