@@ -32,5 +32,5 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: lidorlg/webapp-demo:{{ github.sha }}
+          tags: lidorlg/webapp-demo:${{ github.sha }}
 
