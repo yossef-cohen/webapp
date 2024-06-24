@@ -24,7 +24,7 @@ jobs:
         uses: Byloth/docker-setup-action@v1.1.1
 
       - name: Build the Docker Image
-        run: docker build . -t lidorlg/webapp-demo:{{ github.sha }}
+        run: docker buildx build -t lidorlg/webapp-demo:{{ github.sha }} .
 
       - name: docker login to Docker Hub
         run: docker login -u {{ secrets.docker_user }} -p {{ secrets.docker_pass }}
